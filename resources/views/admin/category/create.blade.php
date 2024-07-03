@@ -29,12 +29,12 @@
                                 <div class="form-group"> 
                                     <label class="fw-medium form-label">Catgory Name</label> 
                                     <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                                    <p class="text-danger" id="catError"></p>
+                                    <p></p>
                                 </div>
                                 <div class="form-group"> 
                                     <label class="fw-medium form-label">Slug</label> 
                                     <input type="text" name="slug" id="slug" class="form-control" placeholder="Name">
-                                    <p class="text-danger" id="slugError"></p>
+                                    <p></p>
                                 </div>
     
                                 <div class="form-group"> 
@@ -86,20 +86,20 @@
                     
                     var errors = response['errors'];
                     if(errors['name']){
-                        // $('name').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['name']);
-                        document.getElementById('catError').innerHTML = "g jlbnjfkln";
+                        $('name').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['name']);
+                        // document.getElementById('catError').innerHTML = "g jlbnjfkln";
                     }else{
-                        // $('name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-                        document.getElementById('catError').innerHTML = "";
+                        $('name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
+                        // document.getElementById('catError').innerHTML = "";
                     }
     
     
                     if(errors['slug']){
-                        // $('slug').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['name']);
-                        document.getElementById('slugError').innerHTML = errors['slug'];
+                        $('slug').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['name']);
+                        // document.getElementById('slugError').innerHTML = errors['slug'];
                     }else{
-                        // $('slug').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-                        document.getElementById('slugError').innerHTML = "";
+                        $('slug').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
+                        // document.getElementById('slugError').innerHTML = "";
                     }
 
                 }
@@ -110,5 +110,22 @@
             }
         })
     });
+
+    $("#name").change(function(){
+        var element = $(this);
+        console.log(element.val());
+        $.ajax({
+            type: 'get',
+            url: '{{ route('getSlug') }}',
+            data: {title: element.val()},
+            dataType: 'json',
+            success: function(response){
+                // console.log('success');
+                if(response['status'] == true){
+                    $("#slug").val(response['slug']);
+                }
+            }
+        });
+    })
 </script>
 @endsection

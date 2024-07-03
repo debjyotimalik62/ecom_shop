@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\models\Category;
 
 class CategoryController extends Controller
 {
@@ -23,6 +24,18 @@ class CategoryController extends Controller
         ]);
 
         if($validator->passes()){
+            $category = new Category();
+            $category->name = $request->name;
+            $category->slug = $request->slug;
+            $category->status = $request->status;
+            $category->save();
+
+            $request->session()->flash('success', 'Catgory added successfully');
+
+            return response()->json([
+                'status' =>true,
+                'errors' => "Catgegory added successfully"
+            ]);
 
         }else{
             return response()->json([
@@ -39,4 +52,5 @@ class CategoryController extends Controller
     public function destroy(){
 
     }
+    
 }
