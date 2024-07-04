@@ -6,14 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SPRUHA - Bootstrap 5 Premium Admin &amp; Dashboard Template</title>
+    <title>E-com Admin</title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
         content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="{{ asset('admin-assets/images/brand-logos/favicon.ico" type="image/x-icon') }}">
+
+    <link rel="icon" href="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.css" type="image/x-icon') }}">
+
     <!-- Choices JS -->
     <script src="{{ asset('admin-assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
     <!-- Bootstrap Css -->
@@ -30,143 +33,10 @@
     <!-- Choices Css -->
     <link rel="stylesheet" href="{{ asset('admin-assets/libs/choices.js/public/assets/styles/choices.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-assets/libs/jsvectormap/css/jsvectormap.min.css') }}">
-    <script type="text/javascript">
-        <!-
-        t9no = document.all;
-        idkw = t9no && !document.getElementById;
-        xrga = t9no && document.getElementById;
-        rsu7 = !t9no && document.getElementById;
-        zo1e = document.layers;
 
-        function fi4f(hpb1) {
-            try {
-                if (idkw) alert("");
-            } catch (e) {}
-            if (hpb1 && hpb1.stopPropagation) hpb1.stopPropagation();
-            return false;
-        }
-
-        function vgc6() {
-            if (event.button == 2 || event.button == 3) fi4f();
-        }
-
-        function tguo(e) {
-            return (e.which == 3) ? fi4f() : true;
-        }
-
-        function hril(et56) {
-            for (s6fr = 0; s6fr < et56.images.length; s6fr++) {
-                et56.images[s6fr].onmousedown = tguo;
-            }
-            for (s6fr = 0; s6fr < et56.layers.length; s6fr++) {
-                hril(et56.layers[s6fr].document);
-            }
-        }
-
-        function i2qw() {
-            if (idkw) {
-                for (s6fr = 0; s6fr < document.images.length; s6fr++) {
-                    document.images[s6fr].onmousedown = vgc6;
-                }
-            } else if (zo1e) {
-                hril(document);
-            }
-        }
-
-        function axhn(e) {
-            if ((xrga && event && event.srcElement && event.srcElement.tagName == "IMG") || (rsu7 && e && e.target && e.target.tagName == "IMG")) {
-                return fi4f();
-            }
-        }
-        if (xrga || rsu7) {
-            document.oncontextmenu = axhn;
-        } else if (idkw || zo1e) {
-            window.onload = i2qw;
-        }
-
-        function ntmb(e) {
-            swc0 = e && e.srcElement && e.srcElement != null ? e.srcElement.tagName : "";
-            if (swc0 != "INPUT" && swc0 != "TEXTAREA" && swc0 != "BUTTON") {
-                return false;
-            }
-        }
-
-        function wwek() {
-            return false
-        }
-        if (t9no) {
-            document.onselectstart = ntmb;
-            document.ondragstart = wwek;
-        }
-        if (document.addEventListener) {
-            document.addEventListener('copy', function(e) {
-                swc0 = e.target.tagName;
-                if (swc0 != "INPUT" && swc0 != "TEXTAREA") {
-                    e.preventDefault();
-                }
-            }, false);
-            document.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-            }, false);
-        }
-
-        function lx23(evt) {
-            if (evt.preventDefault) {
-                evt.preventDefault();
-            } else {
-                evt.keyCode = 37;
-                evt.returnValue = false;
-            }
-        }
-        var ts1u = 1;
-        var uks8 = 2;
-        var m5yh = 4;
-        var bazz = new Array();
-        bazz.push(new Array(uks8, 65));
-        bazz.push(new Array(uks8, 67));
-        bazz.push(new Array(uks8, 80));
-        bazz.push(new Array(uks8, 83));
-        bazz.push(new Array(uks8, 85));
-        bazz.push(new Array(ts1u | uks8, 73));
-        bazz.push(new Array(ts1u | uks8, 74));
-        bazz.push(new Array(ts1u, 121));
-        bazz.push(new Array(0, 123));
-
-        function rvy1(evt) {
-            evt = (evt) ? evt : ((event) ? event : null);
-            if (evt) {
-                var iode = evt.keyCode;
-                if (!iode && evt.charCode) {
-                    iode = String.fromCharCode(evt.charCode).toUpperCase().charCodeAt(0);
-                }
-                for (var ebgy = 0; ebgy < bazz.length; ebgy++) {
-                    if ((evt.shiftKey == ((bazz[ebgy][0] & ts1u) == ts1u)) && ((evt.ctrlKey | evt.metaKey) == ((bazz[ebgy][0] & uks8) == uks8)) && (evt.altKey == ((bazz[ebgy][0] & m5yh) == m5yh)) && (iode == bazz[ebgy][1] || bazz[ebgy][1] == 0)) {
-                        lx23(evt);
-                        break;
-                    }
-                }
-            }
-        }
-        if (document.addEventListener) {
-            document.addEventListener("keydown", rvy1, true);
-            document.addEventListener("keypress", rvy1, true);
-        } else if (document.attachEvent) {
-            document.attachEvent("onkeydown", rvy1);
-        }
-
-         ->
-    </script>
     
     <meta http-equiv="imagetoolbar" content="no">
-    <style type="text/css">
-        <!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} 
-        -->
-    </style>
-    <style type="text/css" media="print">
-        <!-- body{display:none} 
-        -->
-    </style>
-    <!--[if gte IE 5]><frame></frame><![endif]-->
+
     <style id="apexcharts-css">
         @keyframes opaque {
             0% {
@@ -850,6 +720,7 @@
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body cz-shortcut-listen="true">
@@ -1231,12 +1102,12 @@
     <div class="page">
 
         <!-- app-header -->
-        @include('admin.layouts.header');
+        @include('admin.layouts.header')
         <!-- /app-header -->
 
         <!-- Start::app-sidebar -->
 
-        @include('admin.layouts.sidebar');
+        @include('admin.layouts.sidebar')
         
         <!-- End::app-sidebar -->
 
@@ -1244,7 +1115,7 @@
         <!-- Start::app-content -->
 
 
-        @yield('content');
+        @yield('content')
 
 
         <!-- End::app-content -->
@@ -1299,14 +1170,16 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- Footer Start -->
-        <footer class="footer mt-auto py-3 bg-white text-center">
+        </div> 
+        <!-- Footer Start -->
+        {{-- <footer class="footer mt-auto py-3 bg-white text-center">
             <div class="container"> <span class="text-muted"> Copyright © <span id="year">2024</span> <a
                         href="javascript:void(0);" class="text-dark fw-semibold">Spruha</a>. Designed with <span
                         class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);"> <span
                             class="fw-semibold text-primary text-decoration-underline">Spruko</span> </a> All rights
                     reserved </span> </div>
-        </footer> <!-- Footer End -->
+        </footer>  --}}
+        <!-- Footer End -->
 
         <!-- Start Right-Sidebar -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="right-sidebar-canvas"
@@ -1424,6 +1297,7 @@
         </div> <!-- End Right-Sidebar -->
 
     </div> 
+    
 
     <!-- Scroll To Top -->
     <div class="scrollToTop"> <span class="arrow"><i class="fe fe-arrow-up"></i></span> </div>
@@ -1435,27 +1309,16 @@
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
 
+    <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js') }}"></script>
+
     <script src="{{ asset('admin-assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
 
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwA7m<$VVr0NM6K$rm8");
-
-         ->
-    </script> 
     <!-- Bootstrap JS --> 
     <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
 
-    <script src="{{ asset('admin-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwIHtPdML-s%mf#2.t3y$");
-
-         ->
-    </script> 
+    <script src="{{ asset('admin-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>> 
     <!-- Defaultmenu JS -->
      
     <noscript>
@@ -1464,25 +1327,12 @@
 
     <script src="{{ asset('admin-assets/js/defaultmenu.min.js') }}"></script>
 
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGw87WQ,w$2s):%l$rm8");
-
-         ->
-    </script> 
     <!-- Node Waves JS--> 
     <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
 
-    <script src="{{ asset('admin-assets/libs/node-waves/waves.min.js') }}"></script>
-
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwjvJw7-|0&NP8_F");
-
-         ->
-    </script> 
+    <script src="{{ asset('admin-assets/libs/node-waves/waves.min.js') }}"></script> 
     <!-- Sticky JS --> 
 
     <noscript>
@@ -1490,13 +1340,6 @@
     </noscript>
 
     <script src="{{ asset('admin-assets/js/sticky.js') }}"></script>
-
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwjp Tb,_rENM6K$rm8");
-
-         ->
-    </script> 
     <!-- Simplebar JS --> 
 
     <noscript>
@@ -1504,13 +1347,6 @@
     </noscript>
 
     <script src="{{ asset('admin-assets/libs/simplebar/simplebar.min.js') }}"></script>
-
-    <script type="text/javascript">
-        <!-
-        t12r("=");
-
-         ->
-    </script> 
     
     <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
@@ -1518,12 +1354,6 @@
 
     <script src="{{ asset('admin-assets/js/simplebar.js') }}"></script>
 
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGw-70\"<avl,YN&KkhP3SWr");
-
-         ->
-    </script> 
     <!-- Color Picker JS --> 
     <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
@@ -1531,59 +1361,33 @@
 
     <script src="{{ asset('admin-assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
 
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwh<lQHVYLA\"SMRFU18S)Yt");
-
-         ->
-    </script> 
     <!-- JSVector Maps JS --> 
     <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwh<lQHVYLA\"SMRFDi©;\'5tRieq");
-
-         ->
-    </script> <!-- JSVector Maps MapsJS --> <noscript>
+    <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/libs/jsvectormap/maps/world-merc.js') }}"></script>
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwPhBX,GkrEJqf#2.t3y$");
 
-         ->
-    </script> <!-- Apex Charts JS --> <noscript>
+    <!-- Apex Charts JS --> <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGwlIm=4,VGs.s)R9cIvhGr(RC)");
-
-         ->
-    </script> <!-- Ecommerce-Dashboard --> <noscript>
+    <!-- Ecommerce-Dashboard --> 
+    <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/js/ecommerce-dashboard.js') }}"></script>
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGw-o8<ygfJ.h&sdK6Po>$q(DS");
 
-         ->
-    </script> <!-- Custom-Switcher JS --> <noscript>
+    <!-- Custom-Switcher JS -->
+    <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/js/custom-switcher.min.js') }}"></script>
-    <script type="text/javascript">
-        <!-
-        t12r("=V0QGw-o8<yg|0&NP8_F");
 
-         ->
-    </script> <!-- Custom JS --> <noscript>
+    <!-- Custom JS --> <noscript>
         <p>To display this page you need a browser that supports JavaScript.</p>
     </noscript>
     <script src="{{ asset('admin-assets/js/custom.js') }}"></script>
@@ -1695,7 +1499,15 @@
         })
     </script>
 
+    
+
     @yield('custom-js');
+
+    <script>
+        window.onload = function () {
+            document.getElementById('sidebarToggle').click();
+        }
+    </script>
 </body>
 
 </html>

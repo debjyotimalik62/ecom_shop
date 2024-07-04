@@ -12,15 +12,17 @@
                     </ol>
                 </div>
                 <div class="d-flex">
-                    <div class="justify-content-center"> <button type="button"
-                            class="btn btn-white btn-icon-text my-2 me-2 d-inline-flex align-items-center"> <i
-                                class="fe fe-download me-2 fs-14"></i> Import </button> <button type="button"
-                            class="btn btn-white btn-icon-text my-2 me-2 d-inline-flex align-items-center"> <i
-                                class="fe fe-filter me-2 fs-14"></i> Filter </button> <button type="button"
-                            class="btn btn-primary my-2 btn-icon-text d-inline-flex align-items-center"> <i
-                                class="fe fe-download-cloud me-2 fs-14"></i> Download Report </button> </div>
+                    <div class="justify-content-center">
+                        <a href="{{ route('categories.index') }}" class="btn btn-primary my-2 btn-icon-text d-inline-flex align-items-center"> 
+                            <i class="fe fe-arrow-left me-2 fs-14"></i> back 
+                        </a> 
+                    </div>
                 </div>
-            </div> <!-- Page Header Close --> <!-- Start::row-1 -->
+            </div> <!-- Page Header Close --> 
+
+            @include('admin.message')
+
+            <!-- Start::row-1 -->
             <div class="row row-sm">
                 <div class="col-lg-12 col-md-12 col-md-12">
                     <div class="card custom-card">
@@ -33,7 +35,7 @@
                                 </div>
                                 <div class="form-group"> 
                                     <label class="fw-medium form-label">Slug</label> 
-                                    <input type="text" name="slug" id="slug" class="form-control" placeholder="Name">
+                                    <input type="text" name="slug" id="slug" class="form-control" placeholder="Name" readonly>
                                     <p></p>
                                 </div>
     
@@ -71,15 +73,20 @@
     $("#categoryForm").submit(function(event){
         event.preventDefault();
         var element = $(this);
+        $("button[type=submit]").prop('disabled',true);
         $.ajax({
             type: 'POST',
             url: '{{ route('categories.store') }}',
             data: element.serializeArray(),
             dataType: 'json',
             success: function(response){
-                console.log(response);
+                // console.log(response);
+                $("button[type=submit]").prop('disabled',false);
 
                 if(response['status'] == true){
+
+                    window.location.href = "{{ route('categories.index') }}";
+
                     $('name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
                     $('slug').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
                 }else{
@@ -113,13 +120,15 @@
 
     $("#name").change(function(){
         var element = $(this);
-        console.log(element.val());
+        // console.log(element.val());
+        $("button[type=submit]").prop('disabled',true);
         $.ajax({
             type: 'get',
             url: '{{ route('getSlug') }}',
-            data: {title: element.val()},
+            data: {nameval: element.val()},
             dataType: 'json',
             success: function(response){
+                $("button[type=submit]").prop('disabled',false);
                 // console.log('success');
                 if(response['status'] == true){
                     $("#slug").val(response['slug']);

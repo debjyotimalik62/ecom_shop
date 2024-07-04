@@ -1,15 +1,11 @@
 <aside class="app-sidebar sticky" id="sidebar">
-    <!-- Start::main-sidebar-header -->
-    <div class="main-sidebar-header"> <a href="index.html" class="header-logo"> <img
-                src="{{ asset('admin-assets/images/brand-logos/desktop-white.png') }}" class="desktop-white"
-                alt="logo"> <img src="{{ asset('admin-assets/images/brand-logos/toggle-white.png') }}"
-                class="toggle-white" alt="logo"> <img
-                src="{{ asset('admin-assets/images/brand-logos/desktop-logo.png') }}" class="desktop-logo"
-                alt="logo"> <img src="{{ asset('admin-assets/images/brand-logos/toggle-dark.png') }}"
-                class="toggle-dark" alt="logo"> <img
-                src="{{ asset('admin-assets/images/brand-logos/toggle-logo.png') }}" class="toggle-logo" alt="logo">
-            <img src="{{ asset('admin-assets/images/brand-logos/desktop-dark.png') }}" class="desktop-dark"
-                alt="logo"> </a> </div> <!-- End::main-sidebar-header -->
+        <!-- Start::main-sidebar-header -->
+        <div class="main-sidebar-header"> 
+                <a href="index.html" class="header-logo"> 
+                        {{-- <img src="{{ asset('admin-assets/images/brand-logos/desktop-white.png') }}" class="desktop-white" alt="logo">  --}}
+                        <h5 style="color: #fff">Admin Pannel</h5>
+                </a> 
+        </div> <!-- End::main-sidebar-header -->
 
     <!-- Start::main-sidebar -->
     <div class="main-sidebar" id="sidebar-scroll" data-simplebar="init">
@@ -36,27 +32,144 @@
                                     <!-- Start::slide__category -->
                                     <li class="slide__category"><span class="category-name">Dashboard</span>
                                     </li> <!-- End::slide__category -->
+
                                     <!-- Start::slide -->
-                                    <li class="slide"> <a href="index.html" class="side-menu__item"> <span
-                                                class="shape1"></span> <span class="shape2"></span> <i
-                                                class="ti-home side-menu__icon"></i> <span
-                                                class="side-menu__label">Dashboard</span> </a> </li>
+                                    <li class="slide @php echo explode("admin/",Request::url())[1] == 'dashboard' ? 'active open' : '' @endphp">
+                                        <a href="{{ route('admin.dashboard') }}" class="side-menu__item @php echo explode("admin/",Request::url())[1] == 'dashboard' ? 'active' : '' @endphp"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-home side-menu__icon"></i> 
+                                                <span class="side-menu__label">Dashboard</span> 
+                                        </a> 
+                                    </li>
                                     <!-- End::slide -->
+
                                     <!-- Start::slide -->
-                                    <li class="slide has-sub"> <a href="javascript:void(0);"
-                                            class="side-menu__item"> <span class="shape1"></span> <span
-                                                class="shape2"></span> <i class="ti-wallet side-menu__icon"></i>
-                                            <span class="side-menu__label">Crypto Currencies</span> <i
-                                                class="fe fe-chevron-right side-menu__angle"></i> </a>
-                                        <ul class="slide-menu child1"
-                                            style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate(128px, 202px);"
-                                            data-popper-placement="bottom">
-                                            <li class="slide side-menu__label1"> <a
-                                                    href="javascript:void(0)">Crypto Currencies</a> </li>
-                                            <li class="slide"> <a href="crypto-dashboard.html"
-                                                    class="side-menu__item">Dashboard</a> </li>
-                                            <li class="slide"> <a href="crypto-market.html"
-                                                    class="side-menu__item">Marketcap</a> </li>
+                                    <li class="slide @php echo explode("admin/",Request::url())[1] == 'categories' || 'categories/create' ?  'active open' : '' @endphp">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item @php echo explode("admin/",Request::url())[1] == 'categories' || 'categories/create' ?  'active' : '' @endphp"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-layout-list-thumb-alt side-menu__icon"></i> 
+                                                <span class="side-menu__label">Category</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-layout-list-post side-menu__icon"></i> 
+                                                <span class="side-menu__label">Sub Category</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-headphone side-menu__icon"></i> 
+                                                <span class="side-menu__label">Brands</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-archive side-menu__icon"></i> 
+                                                <span class="side-menu__label">Products</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-gift side-menu__icon"></i> 
+                                                <span class="side-menu__label">Shipping</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-shopping-cart-full side-menu__icon"></i> 
+                                                <span class="side-menu__label">Orders</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="fa fa-percent side-menu__icon"></i> 
+                                                <span class="side-menu__label">Discount</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-user side-menu__icon"></i> 
+                                                <span class="side-menu__label">Users</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+                                    <!-- Start::slide -->
+                                    <li class="slide">
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="fa fa-dollar side-menu__icon"></i> 
+                                                <span class="side-menu__label">Payment</span> 
+                                        </a> 
+                                    </li>
+                                    <!-- End::slide -->
+
+
+
+
+
+
+
+
+
+                                    {{-- <!-- Start::slide -->
+                                    <li class="slide has-sub"> 
+                                        <a href="javascript:void(0);" class="side-menu__item"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-wallet side-menu__icon"></i>
+                                                <span class="side-menu__label">Crypto Currencies</span> 
+                                                <i class="fe fe-chevron-right side-menu__angle"></i> 
+                                        </a>
+                                        <ul class="slide-menu child1" style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate(128px, 202px);" data-popper-placement="bottom">
+                                            <li class="slide side-menu__label1"> 
+                                                <a href="javascript:void(0)">Crypto Currencies</a> 
+                                            </li>
+                                            <li class="slide"> 
+                                                <a href="crypto-dashboard.html" class="side-menu__item">Dashboard</a> 
+                                            </li>
+                                            <li class="slide"> 
+                                                <a href="crypto-market.html" class="side-menu__item">Marketcap</a> 
+                                            </li>
                                             <li class="slide"> <a href="crypto-currency-exchange.html"
                                                     class="side-menu__item">Currency exchange</a> </li>
                                             <li class="slide"> <a href="crypto-buy-sell.html"
@@ -66,39 +179,31 @@
                                             <li class="slide"> <a href="crypto-transactions.html"
                                                     class="side-menu__item">Transactions</a> </li>
                                         </ul>
-                                    </li> <!-- End::slide -->
+                                    </li> <!-- End::slide --> --}}
+
                                     <!-- Start::slide -->
-                                    <li class="slide has-sub active open"> <a href="javascript:void(0);"
-                                            class="side-menu__item active"> <span class="shape1"></span> <span
-                                                class="shape2"></span> <i
-                                                class="ti-shopping-cart-full side-menu__icon"></i> <span
-                                                class="side-menu__label">ECommerce</span> <i
-                                                class="fe fe-chevron-right side-menu__angle"></i> </a>
-                                        <ul class="slide-menu child1 active"
-                                            style="position: relative; left: 0px; top: 0px; margin: 0px; box-sizing: border-box; display: block; transform: translate(15px, 522px);"
-                                            data-popper-placement="bottom" data-popper-escaped="">
-                                            <li class="slide side-menu__label1"> <a
-                                                    href="javascript:void(0)">E-Commerce</a> </li>
-                                            <li class="slide active"> <a href="ecommerce-dashboard.html"
-                                                    class="side-menu__item active">Dashboard</a> </li>
-                                            <li class="slide"> <a href="ecommerce-products.html"
-                                                    class="side-menu__item">Products</a> </li>
-                                            <li class="slide"> <a href="ecommerce-product-details.html"
-                                                    class="side-menu__item">Product Details</a> </li>
-                                            <li class="slide"> <a href="ecommerce-cart.html"
-                                                    class="side-menu__item">Cart</a> </li>
-                                            <li class="slide"> <a href="ecommerce-wishlist.html"
-                                                    class="side-menu__item">Wishlist</a> </li>
-                                            <li class="slide"> <a href="ecommerce-checkout.html"
-                                                    class="side-menu__item">Checkout</a> </li>
-                                            <li class="slide"> <a href="ecommerce-orders.html"
-                                                    class="side-menu__item">Orders</a> </li>
-                                            <li class="slide"> <a href="ecommerce-add-product.html"
-                                                    class="side-menu__item">Add Product</a> </li>
-                                            <li class="slide"> <a href="ecommerce-account.html"
-                                                    class="side-menu__item">Account</a> </li>
+                                    {{-- <li class="slide has-sub @if(explode("admin/",Request::url())[1] == 'categories') active open @endif"> 
+                                        <a href="{{ route('categories.index') }}" class="side-menu__item active"> 
+                                                <span class="shape1"></span> 
+                                                <span class="shape2"></span> 
+                                                <i class="ti-shopping-cart-full side-menu__icon"></i> 
+                                                <span class="side-menu__label">Category</span> 
+                                                <i class="fe fe-chevron-right side-menu__angle"></i> 
+                                        </a>
+                                        <ul class="slide-menu child1 @if(explode("admin/",Request::url())[1] == 'categories') active @endif" style="position: relative; left: 0px; top: 0px; margin: 0px; box-sizing: border-box; display: block; transform: translate(15px, 522px);" data-popper-placement="bottom" data-popper-escaped="">
+                                            <li class="slide side-menu__label1"> 
+                                                <a href="{{ route('categories.index') }}">Category</a> 
+                                            </li>
+                                            <li class="slide @if(explode("admin/",Request::url())[1] == 'categories') active @endif"> 
+                                                <a href="{{ route('categories.index') }}" class="side-menu__item @if(explode("admin/",Request::url())[1] == 'categories') active @endif">Category List</a> 
+                                            </li>
+                                            <li class="slide @if(explode("admin/",Request::url())[1] == 'categories/create') active @endif"> 
+                                                <a href="{{ route('categories.create') }}" class="side-menu__item @if(explode("admin/",Request::url())[1] == 'categories/create') active @endif">Add Category</a> 
+                                            </li>
                                         </ul>
-                                    </li> <!-- End::slide -->
+                                    </li>  --}}
+
+                                    {{-- <!-- End::slide -->
                                     <!-- Start::slide__category -->
                                     <li class="slide__category"><span class="category-name">Landing</span></li>
                                     <!-- End::slide__category -->
@@ -557,7 +662,8 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </li> <!-- End::slide -->
+                                    </li> <!-- End::slide --> --}}
+
                                 </ul>
                                 <div class="slide-right d-none" id="slide-right"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
